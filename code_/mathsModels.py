@@ -27,7 +27,7 @@ def GARCH_VM(returns, omega, alpha, beta):
 
 
 
-def blackScholes_VM(S, K, T, r, sigma, option_type="call"):
+def blackScholes_VM(S, K, T, r, sigma, option_type):
     """
     Black-Scholes Model for Option Pricing.
 
@@ -45,9 +45,9 @@ def blackScholes_VM(S, K, T, r, sigma, option_type="call"):
     d1 = (np.log(S / K) + (r + 0.5 * sigma**2) * T) / (sigma * np.sqrt(T))
     d2 = d1 - sigma * np.sqrt(T)
 
-    if option_type == "call":
+    if option_type == "C":
         price = S * norm.cdf(d1) - K * np.exp(-r * T) * norm.cdf(d2)
-    elif option_type == "put":
+    elif option_type == "P":
         price = K * np.exp(-r * T) * norm.cdf(-d2) - S * norm.cdf(-d1)
     else:
         raise ValueError("Invalid option type. Use 'call' or 'put'.")

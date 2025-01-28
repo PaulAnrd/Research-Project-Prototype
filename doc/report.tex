@@ -2,12 +2,25 @@
 \usepackage[utf8]{inputenc} 
 \usepackage{amsmath}
 \usepackage{geometry}
-\usepackage{graphicx} 
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
 \geometry{margin=2.5cm}
+
+
+
+\tikzstyle{block} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=blue!20]
+\tikzstyle{input} = [block, fill=yellow!30]
+\tikzstyle{output} = [block, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
 
 \title{\textbf{Research Project Prototype\\Version 1}}
 \author{} 
 \date{\today}
+
 
 \begin{document}
 
@@ -80,12 +93,30 @@ After training the models and predicting the target, results show no major diffe
 
 For both models, performances showed evidence of good regression but with challenging data and target complexity, highlighting the challenge of volatility forecasting.
 
+Below an exemple of volatility prediction :
+
 \begin{center}
 \includegraphics[width=0.9\textwidth]{img/PVA_R.png}
 \end{center}
 
+And the second neural network for option pricing compare to black scholes output :
+\begin{center}
+\includegraphics[width=0.9\textwidth]{img/BS_VS_ANN.png}
+\end{center}
+
+
 \section{Next Steps}
 
 As stated in the results section, regression has been challenging for the models, with room for improvement despite decent regression evidence. This project will focus on improving volatility forecasting by ANN. The next step is to tune LSTM hyperparameters to improve its performance and gain the most from its memory advantage. Data work, like outlier suppression, will also be a fundamental aspect to build models and new methods on solid ground.
+
+
+
+\begin{center}
+\includegraphics[width=1\textwidth]{img/structure_bw.png}
+\end{center}
+
+
+
+
 
 \end{document}
